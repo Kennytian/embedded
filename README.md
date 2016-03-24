@@ -55,13 +55,19 @@ app/build.gradle (将'com.android.support:appcompat-v7:23.2.1'改为'com.android
 gradle.properties (在文件末尾添加，android.useDeprecatedNdk=true)
 
 注意：小坑一个，如果遇到。请按第6项修改，并且要保证react-native版本是0.21.0以上
+
 歪果朋友也深受其害，https://github.com/facebook/react-native/issues/6152#issuecomment-200759453
 
 java.lang.IllegalAccessError: Method 'void android.support.v4.net.ConnectivityManagerCompat.<init>()' is inaccessible to class 'com.facebook.react.modules.netinfo.NetInfoModule' (declaration of 'com.facebook.react.modules.netinfo.NetInfoModule' appears in /data/app/package.name-2/base.apk)
+
 at com.facebook.react.modules.netinfo.NetInfoModule.<init>(NetInfoModule.java:55)
+
 at com.facebook.react.shell.MainReactPackage.createNativeModules(MainReactPackage.java:62)
+
 at com.facebook.react.ReactInstanceManagerImpl.processPackage(ReactInstanceManagerImpl.java:751)
+
 at com.facebook.react.ReactInstanceManagerImpl.createReactContext(ReactInstanceManagerImpl.java:688)
+
 at com.facebook.react.ReactInstanceManagerImpl.access$600(ReactInstanceManagerImpl.java:84)
 
 ![android.support版本](https://raw.githubusercontent.com/Kennytian/embedded/master/screenshot/9.png)
