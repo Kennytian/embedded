@@ -1,5 +1,5 @@
 ### 将React Native集成至Android原生应用
-##### Android Studio 2.1 Preview 3生成的空项目，minSdkVersion=16
+##### Android Studio 2.1 Preview 3生成的空项目
 ##### react-native 环境 0.22.2
 
 初次编译后apk有1.1M，还算可以接受。 默认依赖的lib如下图所示：
@@ -16,7 +16,7 @@
 
 ![添加react native后的插件集](https://raw.githubusercontent.com/Kennytian/embedded/master/screenshot/2.png)
 
-如果原项目应用了这些插件，那恭喜你，可以复用了，反之就要算办法精减。
+如果原Android项目应用了这些插件，那恭喜你，可以复用了，反之就要算办法精减(我也还在研究)。
 
 2.在MainActivity里添加跳转至ReactNativeActivity的代码（模拟业务场景）
 
@@ -33,7 +33,7 @@
 
 <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
 '
-4.拷贝如下文件夹及文件到Android项目根目录
+5.拷贝如下文件夹及文件到Android项目根目录
 
 node_modules（文件夹。从之前init React Native项目里拷一份过来。因为npm install成功率很低，就算是用taobao的源，也很慢）
 
@@ -46,13 +46,23 @@ index.android.js（文件。操作方式同上，注意class名称与下面regis
 package.json(文件。操作方式同上，注意文件内容里的name和react-native版本号)
 
 
-5.修改如下文件
+6.修改如下文件
 
 .gitignore（在该文件里添加排除项，node_modules/ 和 npm-debug.log）
 
-app/build.gradle (将compile 'com.android.support:appcompat-v7:23.<mark>2</mark>.1'改为compile "com.android.support:appcompat-v7:23.<mark>0</mark>.1"。 这是一个坑，不注意就会出现最一张图中的提示，哈哈)
+app/build.gradle (将'com.android.support:appcompat-v7:23.2.1'改为'com.android.support:appcompat-v7:23.0.1')
 
 gradle.properties (在文件末尾添加，android.useDeprecatedNdk=true)
+
+注意：小坑一个，如果遇到。请按第6项修改，并且要保证react-native版本是0.21.0以上
+歪果朋友也深受其害，https://github.com/facebook/react-native/issues/6152#issuecomment-200759453
+
+java.lang.IllegalAccessError: Method 'void android.support.v4.net.ConnectivityManagerCompat.<init>()' is inaccessible to class 'com.facebook.react.modules.netinfo.NetInfoModule' (declaration of 'com.facebook.react.modules.netinfo.NetInfoModule' appears in /data/app/package.name-2/base.apk)
+at com.facebook.react.modules.netinfo.NetInfoModule.<init>(NetInfoModule.java:55)
+at com.facebook.react.shell.MainReactPackage.createNativeModules(MainReactPackage.java:62)
+at com.facebook.react.ReactInstanceManagerImpl.processPackage(ReactInstanceManagerImpl.java:751)
+at com.facebook.react.ReactInstanceManagerImpl.createReactContext(ReactInstanceManagerImpl.java:688)
+at com.facebook.react.ReactInstanceManagerImpl.access$600(ReactInstanceManagerImpl.java:84)
 
 ![android.support版本](https://raw.githubusercontent.com/Kennytian/embedded/master/screenshot/9.png)
 
