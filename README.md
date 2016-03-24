@@ -1,7 +1,6 @@
-### 向已存在的Android项目里集成React Native
-#### 用Android Studio 2.1 Preview 3生成的空项目
-`minSdkVersion 16
-targetSdkVersion 23`
+### 将React Native集成至Android原生应用
+##### Android Studio 2.1 Preview 3生成的空项目，minSdkVersion=16
+##### react-native 环境 0.22.2
 
 初次编译后apk有1.1M，还算可以接受。 默认依赖的lib如下图所示：
 
@@ -54,7 +53,6 @@ package.json(文件。操作方式同上，注意文件内容里的name和react-
 app/build.gradle (将compile 'com.android.support:appcompat-v7:23.<mark>2</mark>.1'改为compile "com.android.support:appcompat-v7:23.<mark>0</mark>.1"。 这是一个坑，不注意就会出现最一张图中的提示，哈哈)
 
 gradle.properties (在文件末尾添加，android.useDeprecatedNdk=true)
-
 
 ![android.support版本](https://raw.githubusercontent.com/Kennytian/embedded/master/screenshot/9.png)
 
