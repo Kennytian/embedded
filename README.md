@@ -6,6 +6,8 @@
 
 图1
 
+![默认插件集](https://raw.githubusercontent.com/Kennytian/embedded/master/screenshot/1.png)
+
 1.***app/build.gradle***里添加如下代码：
 
     compile 'com.facebook.react:react-native:0.20.+'
@@ -14,4 +16,6 @@
 
 图2
 
+![添加react native后的插件集](https://raw.githubusercontent.com/Kennytian/embedded/master/screenshot/2.png)
 
+接下来
