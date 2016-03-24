@@ -18,4 +18,14 @@
 
 ![添加react native后的插件集](https://raw.githubusercontent.com/Kennytian/embedded/master/screenshot/2.png)
 
-接下来
+2.添加ReactNativeActivity页面，向里面添加代码，在MainActivity里添加跳转至ReactNativeActivity的代码（模拟业务场景）
+图3
+![ReactNativeActivity代码](https://raw.githubusercontent.com/Kennytian/embedded/master/screenshot/3.png)
+
+3.向AndroidManifest.xml里添加 ***.ReactNativeActivity*** 和  ***com.facebook.react.devsupport.DevSettingsActivity***
+'
+<activity android:name=".ReactNativeActivity"
+    android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+
+<activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+'

@@ -10,7 +10,9 @@
     tools:context="com.kenny.embedded.MainActivity">
 
     <TextView
+        android:id="@+id/tv_native"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="我是Android Native页面，点击我跳转到React Native页面"
+        android:textSize="20dp" />
 </RelativeLayout>
