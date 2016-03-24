@@ -1,6 +1,16 @@
+# OSX
+#
 .DS_Store
+
+# Android
+#
 build/
 captures/
 .idea/
 .gradle/
 gradle/
+
+# node.js
+#
+node_modules
+npm-debug.log

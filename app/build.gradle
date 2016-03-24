@@ -22,6 +22,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.2.1'
-    compile 'com.facebook.react:react-native:0.20.+'
+    //注意：react-native 0.22.2 对应支持v7的版本是23.0.1
+    compile "com.android.support:appcompat-v7:23.0.1"
+    compile "com.facebook.react:react-native:0.20.+"
 }

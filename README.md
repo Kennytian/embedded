@@ -20,6 +20,7 @@
 
 2.添加ReactNativeActivity页面，向里面添加代码，在MainActivity里添加跳转至ReactNativeActivity的代码（模拟业务场景）
 图3
+
 ![ReactNativeActivity代码](https://raw.githubusercontent.com/Kennytian/embedded/master/screenshot/3.png)
 
 3.向AndroidManifest.xml里添加 ***.ReactNativeActivity*** 和  ***com.facebook.react.devsupport.DevSettingsActivity***
@@ -29,3 +30,11 @@
 
 <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
 '
+4.拷贝如下文件夹及文件
+
+node_modules（文件夹）
+
+.flowconfig （文件）
+
+.watchmanconfig（文件）
+
