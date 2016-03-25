@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 0) {
+        if (requestCode == 0 && data != null) {
             String result = data.getStringExtra("fromReact");
             mReactValue.setText(result);
             mReactValue.setTextColor(Color.RED);

@@ -17,11 +17,27 @@ class EmbeddedApp extends Component {
         super(props);
 
         this.state = {
-            text: 'Welcome to React Native!'
+            text: 'Welcome to React Native!',
+            navigateCount: 0
         };
     }
+
+    componentWillMount() {
+        if (React.Platform.OS === 'android') {
+            React.BackAndroid.addEventListener('hardwareBackPress', ()=>this._backButton());
+        }
+     }
     
-    _onPressButton(){
+    _backButton(){
+        const {navigateCount} = this.state;
+        if (navigateCount) {
+            React.NativeModules.RNIntentModule.backActivity(navigateCount)
+            return true;
+        }
+        return false;
+    }
+
+    _clickButton(){
         React.NativeModules.RNIntentModule.finishActivity('我是来自React Native的消息');
     }
 
@@ -31,7 +47,7 @@ class EmbeddedApp extends Component {
                 <Text style={styles.welcome}>
                     {this.state.text}
                 </Text>
-                <TouchableOpacity activeOpacity={0.8} onPress={this._onPressButton}>
+                <TouchableOpacity activeOpacity={0.8} onPress={this._clickButton}>
                     <Text style={styles.instructions}>
                         点击我，给Android Native点颜色看看
                     </Text>
@@ -45,9 +61,15 @@ class EmbeddedApp extends Component {
 
     componentDidMount() {
         React.NativeModules.RNIntentModule.getDataFromIntent(
-            successMsg => this.setState({text: successMsg}),
-            errorMsg => this.setState({text: errorMsg})
+            successMsg => this.setState({text: successMsg, navigateCount: 1}),
+            errorMsg => this.setState({text: errorMsg, navigateCount: 1})
        );
+    }
+
+    componentWillUnmount() {
+        if (React.Platform.OS === 'android') {
+            React.BackAndroid.removeEventListener('hardwareBackPress', ()=>this._backButton());
+        }
     }
 }
 

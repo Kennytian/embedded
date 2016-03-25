@@ -39,6 +39,19 @@ public class RNIntentModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void backActivity(int count) {
+        if (count > 0) {
+            try {
+                Activity currentActivity = getCurrentActivity();
+                currentActivity.finish();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    @ReactMethod
     public void finishActivity(String result) {
         try {
             Activity currentActivity = getCurrentActivity();
