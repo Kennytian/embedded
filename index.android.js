@@ -7,6 +7,7 @@ import React, {
     AppRegistry,
     Component,
     StyleSheet,
+    TouchableOpacity,
     Text,
     View
 } from 'react-native';
@@ -19,6 +20,10 @@ class EmbeddedApp extends Component {
             text: 'Welcome to React Native!'
         };
     }
+    
+    _onPressButton(){
+        React.NativeModules.RNIntentModule.finishActivity('我是来自React Native的消息');
+    }
 
     render() {
         return (
@@ -26,9 +31,11 @@ class EmbeddedApp extends Component {
                 <Text style={styles.welcome}>
                     {this.state.text}
                 </Text>
-                <Text style={styles.instructions}>
-                    To get started, edit index.android.js
-                </Text>
+                <TouchableOpacity activeOpacity={0.8} onPress={this._onPressButton}>
+                    <Text style={styles.instructions}>
+                        点击我，给Android Native点颜色看看
+                    </Text>
+                </TouchableOpacity>
                 <Text style={styles.instructions}>
                     Shake or press menu button for dev menu
                 </Text>
@@ -55,11 +62,14 @@ const styles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center',
         margin: 10,
+        color: 'red'
     },
     instructions: {
         textAlign: 'center',
         color: '#333333',
+        marginTop: 15,
         marginBottom: 5,
+        fontSize: 14,
     },
 });
 
