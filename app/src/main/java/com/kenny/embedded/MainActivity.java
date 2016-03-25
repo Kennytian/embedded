@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(this, ReactNativeActivity.class);
+        intent.putExtra("result","我是来自Android Intent的消息");
         startActivity(intent);
     }
 }

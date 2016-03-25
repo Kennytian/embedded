@@ -1,6 +1,5 @@
 package com.kenny.embedded;
 
-
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -21,6 +20,7 @@ public class ReactNativeActivity extends ReactActivity {
         return "EmbeddedApp";
     }
 
+
     /**
      * Returns whether dev mode should be enabled.
      * This enables e.g. the dev menu.
@@ -36,8 +36,10 @@ public class ReactNativeActivity extends ReactActivity {
      */
     @Override
     protected List<ReactPackage> getPackages() {
-        return Arrays.<ReactPackage>asList(
-                new MainReactPackage()
+        return Arrays.asList(
+                new MainReactPackage(),
+                new RNPackage()
         );
     }
+
 }
