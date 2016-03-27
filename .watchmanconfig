@@ -1,1 +1,4 @@
-{}
+{
+    "ignore_vcs": [".git"],
+    "ignore_dirs": ["build", ".idea", "app/build"]
+}
