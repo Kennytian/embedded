@@ -16,11 +16,11 @@
 ![添加react native后的插件集](https://raw.githubusercontent.com/Kennytian/embedded/master/screenshot/2.png)
 
 我们一起来认识一下这个库是起什么作用的：
-* android-jsc-r174650：Android里的 jsc 引擎
+* android-jsc-r174650：Android 里的 jsc 引擎
 * appcompat-v7-23.0.1：appcompat v7 支持库
-* bolts-android-1.1.4：Facebook开发的Android的底层库集合，主要是处理 Task
+* bolts-android-1.1.4：Facebook 开发的 Android 的底层库集合，主要是处理 Task
 * drawee-0.8.1：fresco 控件中的一个负责显示的底层库，包含在 fresco 里
-fbcore-0.8.1：Facebook 内核库
+* fbcore-0.8.1：Facebook 内核库
 * fresco-0.8.1：Facebook 开发的一款强大的 Android 图片处理库
 * imagepipeline-0.8.1：负责完成加载图片（网络、本地文件，本地资源），包含在fresco里
 * imagepipeline-okhttp-0.8.1:负责完成加载图片前的网络请求，包含在 fresco 里
@@ -52,29 +52,29 @@ fbcore-0.8.1：Facebook 内核库
 <activity android:name=".ReactNativeActivity"
     android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
 
-<activity android:name="com.facebook.react.devsupport.DevSettingsActivity" /> '
+<activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
 
 5.拷贝如下文件夹及文件到Android项目根目录
 
-* node_modules（文件夹。从之前init React Native项目里拷一份过来。因为npm install成功率很低，就算是用taobao的源，也很慢）
+* node_modules（文件夹。从之前 init React Native 项目里拷一份过来。因为 npm install 成功率很低，就算是用taobao的源，也很慢）
 
-* .flowconfig （文件。操作方式同上）
+* .flowconfig （JavaScript 静态类型检查工具配置文件）
 
-* .watchmanconfig（文件。操作方式同上）
+* .watchmanconfig（Facebook 开发的用来监视文件并且记录文件的改动情况，当文件变更就触发一些操作, 如：Enable Live Reload的功能）
 
-* index.android.js（文件。操作方式同上，注意class名称与下面register时名称要一致）
+* index.android.js（文件。操作方式同上，注意 class 名称与下面 register 时名称要一致）
 
-* package.json(文件。操作方式同上，注意文件内容里的name和react-native版本号)
+* package.json(文件。操作方式同上，注意文件内容里的 name 和 react-native 版本号)
 
 6.修改如下文件
 
 * .gitignore（在该文件里添加排除项，node_modules/ 和 npm-debug.log）
 
-* app/build.gradle (将'com.android.support:appcompat-v7:23.<mark>2</mark>.1'改为'com.android.support:appcompat-v7:23.<mark>0</mark>.1')
+* app/build.gradle (将 'com.android.support:appcompat-v7:23.<mark>2</mark>.1' 改为 'com.android.support:appcompat-v7:23.<mark>0</mark>.1')
 
 * gradle.properties (在文件末尾添加，android.useDeprecatedNdk=true)
 
-注意：小坑一个，如果遇到。请按第6项修改，并且要保证react-native版本是0.21.0以上
+注意：小坑一个，如果遇到。请按第6项修改，并且要保证 react-native 版本是0.21.0以上
 
 歪果朋友也深受其害，https://github.com/facebook/react-native/issues/6152#issuecomment-200759453
 
