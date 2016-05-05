@@ -1,5 +1,5 @@
 ### 将React Native集成至Android原生应用
-##### Android Studio 2.1 Preview 4生成的空项目
+##### Android Studio 2.1 生成的空项目
 ##### react-native 环境 0.22.2
 
 初次编译后apk有1.1M，还算可以接受。 默认依赖的lib如下图所示：
